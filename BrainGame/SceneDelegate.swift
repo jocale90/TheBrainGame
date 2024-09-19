@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Revisamos si el usuario ya está autenticado
         if let _ = UserDefaults.standard.string(forKey: "authToken") {
             // Si ya hay un token, navegamos directamente al Home
-            let homeVC = LoginViewController()
+            let homeVC = HomeViewController()
             let navigationController = UINavigationController(rootViewController: homeVC)
             window.rootViewController = navigationController
         } else {

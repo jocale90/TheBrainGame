@@ -6,6 +6,8 @@ class ViewController: UIViewController {
     var assignedImages: [String] = []
     var imageViews: [UIImageView] = []
     var selectedCards: [UIImageView] = []
+    
+    var defaultImageURL: String? // La URL de la imagen por defecto
 
     let numberOfRows = 4
     let numberOfColumns = 4
@@ -71,10 +73,13 @@ class ViewController: UIViewController {
         }.resume()
     }
 
-    // Nuevo método para configurar el juego
+    // Configurar el juego con el tema recibido
     func setupGame(with themeResponse: ThemeResponse) {
         // Establecer la imagen de fondo
         setBackgroundImage(named: themeResponse.backgroundImage)
+        
+        // Elegimos una imagen por defecto de las 8 imágenes del tema
+        defaultImageURL = themeResponse.images.first // Tomamos la primera imagen como "tapada"
         
         // Generar las imágenes aleatorias duplicadas para las cartas
         assignedImages = generateRandomImages(from: themeResponse.images)
@@ -126,12 +131,21 @@ class ViewController: UIViewController {
         ])
     }
 
-    // Crear una vista de imagen para cada carta
+    // Crear una vista de imagen para cada carta con la imagen por defecto
     func createCardImageView() -> UIImageView {
-        let imageView = UIImageView(image: UIImage(named: "card-back"))
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true // Habilitar la interacción
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Cargar la imagen por defecto
+        if let defaultImageURL = defaultImageURL {
+            loadImage(from: defaultImageURL) { image in
+                DispatchQueue.main.async {
+                    imageView.image = image
+                }
+            }
+        }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cardTapped(_:)))
         imageView.addGestureRecognizer(tapGesture)
@@ -173,9 +187,16 @@ class ViewController: UIViewController {
         } else {
             // Si no coinciden, ocultarlas nuevamente después de un pequeño retraso
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-                self?.selectedCards[0].image = UIImage(named: "card-back")
-                self?.selectedCards[1].image = UIImage(named: "card-back")
-                self?.selectedCards.removeAll() // Limpiar las cartas seleccionadas
+                // Volver a poner la imagen por defecto
+                if let defaultImageURL = self?.defaultImageURL {
+                    self?.loadImage(from: defaultImageURL) { image in
+                        DispatchQueue.main.async {
+                            self?.selectedCards[0].image = image
+                            self?.selectedCards[1].image = image
+                            self?.selectedCards.removeAll() // Limpiar las cartas seleccionadas
+                        }
+                    }
+                }
             }
         }
     }

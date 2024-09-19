@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E06447B2C9A4D4C00B6F3FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06447A2C9A4D4C00B6F3FC /* LoginViewController.swift */; };
+		5E06447D2C9A523200B6F3FC /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06447C2C9A523200B6F3FC /* ThemeService.swift */; };
+		5E0644812C9A5C8A00B6F3FC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0644802C9A5C8A00B6F3FC /* Theme.swift */; };
+		5E0644832C9A5E3D00B6F3FC /* ThemeImagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0644822C9A5E3D00B6F3FC /* ThemeImagesResponse.swift */; };
+		5EEC49732C9BB8A700190BF8 /* ThemeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEC49722C9BB8A700190BF8 /* ThemeDetails.swift */; };
 		5EF23BD62C93B05D00E6435E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF23BD52C93B05D00E6435E /* AppDelegate.swift */; };
 		5EF23BD82C93B05D00E6435E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF23BD72C93B05D00E6435E /* SceneDelegate.swift */; };
 		5EF23BDA2C93B05D00E6435E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF23BD92C93B05D00E6435E /* ViewController.swift */; };
@@ -37,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E06447A2C9A4D4C00B6F3FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5E06447C2C9A523200B6F3FC /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
+		5E0644802C9A5C8A00B6F3FC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5E0644822C9A5E3D00B6F3FC /* ThemeImagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeImagesResponse.swift; sourceTree = "<group>"; };
+		5EEC49722C9BB8A700190BF8 /* ThemeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDetails.swift; sourceTree = "<group>"; };
 		5EF23BD22C93B05D00E6435E /* BrainGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF23BD52C93B05D00E6435E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EF23BD72C93B05D00E6435E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +88,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E06447E2C9A59E700B6F3FC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5E06447C2C9A523200B6F3FC /* ThemeService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5E06447F2C9A5C4700B6F3FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E0644802C9A5C8A00B6F3FC /* Theme.swift */,
+				5E0644822C9A5E3D00B6F3FC /* ThemeImagesResponse.swift */,
+				5EEC49722C9BB8A700190BF8 /* ThemeDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5EF23BC92C93B05D00E6435E = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +129,13 @@
 		5EF23BD42C93B05D00E6435E /* BrainGame */ = {
 			isa = PBXGroup;
 			children = (
+				5E06447F2C9A5C4700B6F3FC /* Models */,
+				5E06447E2C9A59E700B6F3FC /* Networking */,
 				5EF23BD52C93B05D00E6435E /* AppDelegate.swift */,
 				5EF23BD72C93B05D00E6435E /* SceneDelegate.swift */,
 				5EF23C052C93C7EE00E6435E /* HomeViewController.swift */,
 				5EF23BD92C93B05D00E6435E /* ViewController.swift */,
+				5E06447A2C9A4D4C00B6F3FC /* LoginViewController.swift */,
 				5EF23BDB2C93B05D00E6435E /* Main.storyboard */,
 				5EF23BDE2C93B05F00E6435E /* Assets.xcassets */,
 				5EF23BE02C93B05F00E6435E /* LaunchScreen.storyboard */,
@@ -264,7 +295,12 @@
 				5EF23BDA2C93B05D00E6435E /* ViewController.swift in Sources */,
 				5EF23BD62C93B05D00E6435E /* AppDelegate.swift in Sources */,
 				5EF23BD82C93B05D00E6435E /* SceneDelegate.swift in Sources */,
+				5E06447B2C9A4D4C00B6F3FC /* LoginViewController.swift in Sources */,
+				5EEC49732C9BB8A700190BF8 /* ThemeDetails.swift in Sources */,
+				5E0644832C9A5E3D00B6F3FC /* ThemeImagesResponse.swift in Sources */,
 				5EF23C062C93C7EE00E6435E /* HomeViewController.swift in Sources */,
+				5E06447D2C9A523200B6F3FC /* ThemeService.swift in Sources */,
+				5E0644812C9A5C8A00B6F3FC /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

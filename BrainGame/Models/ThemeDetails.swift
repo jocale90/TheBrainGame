@@ -11,4 +11,5 @@ struct ThemeDetails: Codable {
     let theme: String
     let images: [String]
     let backgroundImage: String
+    let backgroundCard: String
 }

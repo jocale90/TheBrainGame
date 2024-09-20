@@ -73,13 +73,12 @@ class ViewController: UIViewController {
         }.resume()
     }
 
-    // Configurar el juego con el tema recibido
     func setupGame(with themeResponse: ThemeResponse) {
         // Establecer la imagen de fondo
         setBackgroundImage(named: themeResponse.backgroundImage)
         
-        // Elegimos una imagen por defecto de las 8 imágenes del tema
-        defaultImageURL = themeResponse.images.first // Tomamos la primera imagen como "tapada"
+        // Usamos backgroundCard como la imagen por defecto para las cartas tapadas
+        defaultImageURL = themeResponse.backgroundCard
         
         // Generar las imágenes aleatorias duplicadas para las cartas
         assignedImages = generateRandomImages(from: themeResponse.images)
@@ -87,6 +86,9 @@ class ViewController: UIViewController {
         // Configurar las vistas de las cartas
         setupImageViews()
     }
+
+
+
 
     // Generar imágenes aleatorias duplicadas para las cartas
     func generateRandomImages(from images: [String]) -> [String] {
@@ -235,10 +237,13 @@ class ViewController: UIViewController {
     }
 }
 
-// Modelo para decodificar la respuesta del tema
 struct ThemeResponse: Codable {
     let theme: String
-    let images: [String]
+    let images: [String] // Cambia esto de nuevo a un array
     let backgroundImage: String
+    let backgroundCard: String
 }
+
+
+
 

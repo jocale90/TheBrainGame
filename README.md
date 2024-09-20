@@ -16,12 +16,10 @@ This project is built using **UIKit** and includes custom assets for a visually 
 
 ## Screenshots
 
-| Home Screen | Gameplay | Themes |
-|-------------|----------|--------|
-| ![Home](<img width="376" alt="image" src="https://github.com/user-attachments/assets/32cef5a7-9ef8-4945-988d-bc5d898aead4">
-) | ![Gameplay](<img width="354" alt="image" src="https://github.com/user-attachments/assets/0a63a262-0f59-46d6-9612-9907b52054e7">
-) | ![Themes](<img width="359" alt="image" src="https://github.com/user-attachments/assets/7d06d36c-e9cc-4ae3-b199-2cea20de4979">
-) |
+| Home Screen                           | Gameplay                              | Themes                               |
+|---------------------------------------|---------------------------------------|--------------------------------------|
+| ![Home](https://github.com/user-attachments/assets/32cef5a7-9ef8-4945-988d-bc5d898aead4) | ![Gameplay](https://github.com/user-attachments/assets/0a63a262-0f59-46d6-9612-9907b52054e7) | ![Themes](https://github.com/user-attachments/assets/7d06d36c-e9cc-4ae3-b199-2cea20de4979) |
+
 
 ## How to Play
 

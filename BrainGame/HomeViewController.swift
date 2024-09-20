@@ -80,8 +80,8 @@ class HomeViewController: UIViewController {
         // Para cada tema obtenido del API, creamos un botón con el nombre del tema
         for theme in themes {
             let button = UIButton(type: .system)
-            button.tag = themes.firstIndex(of: theme) ?? 0 // Asignamos un tag para identificar el tema
-            button.setTitle(theme.name, for: .normal) // Usamos el nombre del tema como título
+            button.tag = themes.firstIndex(of: theme) ?? 0 
+            button.setTitle(theme.name, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
             button.backgroundColor = .systemBlue
             button.setTitleColor(.white, for: .normal)

@@ -41,7 +41,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            // Verificar el código de estado HTTP
+
             if let httpResponse = response as? HTTPURLResponse {
                 print("Código de estado HTTP: \(httpResponse.statusCode)")
                 if httpResponse.statusCode != 200 {
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                 return
             }
 
-            // Intentar decodificar el JSON
+            //  decodificar el JSON
             do {
                 let themeResponse = try JSONDecoder().decode(ThemeResponse.self, from: data)
                 DispatchQueue.main.async {
@@ -74,23 +74,17 @@ class ViewController: UIViewController {
     }
 
     func setupGame(with themeResponse: ThemeResponse) {
-        // Establecer la imagen de fondo
+
         setBackgroundImage(named: themeResponse.backgroundImage)
         
-        // Usamos backgroundCard como la imagen por defecto para las cartas tapadas
         defaultImageURL = themeResponse.backgroundCard
         
-        // Generar las imágenes aleatorias duplicadas para las cartas
         assignedImages = generateRandomImages(from: themeResponse.images)
         
-        // Configurar las vistas de las cartas
         setupImageViews()
     }
 
 
-
-
-    // Generar imágenes aleatorias duplicadas para las cartas
     func generateRandomImages(from images: [String]) -> [String] {
         var duplicatedImages = images + images
         duplicatedImages.shuffle() // Mezclar las imágenes aleatoriamente
@@ -98,7 +92,7 @@ class ViewController: UIViewController {
         return duplicatedImages
     }
 
-    // Configurar las vistas de imagen para las cartas
+
     func setupImageViews() {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -239,7 +233,7 @@ class ViewController: UIViewController {
 
 struct ThemeResponse: Codable {
     let theme: String
-    let images: [String] // Cambia esto de nuevo a un array
+    let images: [String] 
     let backgroundImage: String
     let backgroundCard: String
 }

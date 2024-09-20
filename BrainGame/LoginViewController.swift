@@ -33,10 +33,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Establecemos la imagen de fondo
-        setBackgroundImage(named: "back")  // Asegúrate de que "back" sea el nombre correcto en tus Assets.xcassets
+        setBackgroundImage(named: "back")  
         
-        // Añadimos los campos de texto y el botón a la vista
         let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
         stackView.axis = .vertical
         stackView.spacing = 20
@@ -44,7 +42,6 @@ class LoginViewController: UIViewController {
         
         view.addSubview(stackView)
         
-        // Centramos el stackView
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -53,7 +50,6 @@ class LoginViewController: UIViewController {
         ])
     }
     
-    // Función para agregar la imagen de fondo
     func setBackgroundImage(named imageName: String) {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: imageName)
@@ -62,7 +58,6 @@ class LoginViewController: UIViewController {
         view.addSubview(backgroundImage)
         view.sendSubviewToBack(backgroundImage) // Enviamos la imagen al fondo
         
-        // Aseguramos que la imagen se ajuste a toda la pantalla
         NSLayoutConstraint.activate([
             backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -78,7 +73,6 @@ class LoginViewController: UIViewController {
             return
         }
         
-        // Llamamos a la función para realizar el login
         login(email: email, password: password)
     }
     
@@ -97,7 +91,6 @@ class LoginViewController: UIViewController {
             return
         }
         
-        // Realizamos la llamada API para el login
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error en la llamada API:", error)
@@ -117,7 +110,6 @@ class LoginViewController: UIViewController {
                     // Guardamos el token para usarlo en futuras llamadas
                     self.saveToken(token: token)
                     
-                    // Navegamos al HomeViewController
                     DispatchQueue.main.async {
                         self.navigateToHome()
                     }
@@ -130,12 +122,11 @@ class LoginViewController: UIViewController {
         }.resume()
     }
     
-    // Función para guardar el token (idealmente en el Keychain)
+    // Función para guardar el token (a futuro lo hare en el Keychain)
     func saveToken(token: String) {
         UserDefaults.standard.set(token, forKey: "authToken")
     }
     
-    // Función para navegar al HomeViewController una vez logueado
     func navigateToHome() {
         let homeVC = HomeViewController()
         navigationController?.pushViewController(homeVC, animated: true)
